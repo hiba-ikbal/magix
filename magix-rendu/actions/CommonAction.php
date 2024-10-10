@@ -60,3 +60,10 @@
         }
         abstract  protected  function executeAction();
     }
+
+	//notes to check:
+	//Consider checking if json_decode fails (returns null) to handle cases where the API response is not valid JSON.
+	//$result = json_decode($response);
+// if (json_last_error() !== JSON_ERROR_NONE) {
+//     // Handle JSON error
+// }

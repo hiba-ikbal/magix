@@ -17,3 +17,6 @@
             return compact("text");
         }
     }
+
+    //Make sure RulesDAO::getIndexText() correctly handles cases where there are no rules to display.
+    

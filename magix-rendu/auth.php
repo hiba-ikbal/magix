@@ -49,3 +49,4 @@
 </div>
 <?php
 	require_once("partials/footer.php");
+//Make sure the successMessage and errorMessage keys in the $data array are set correctly in your AuthAction.

@@ -35,3 +35,8 @@
         
     }
 }
+//ensure to always provide feedback to the user
+//return [
+//     "errorMessage" => $hasConnectionError ? "Nom d'utilisateur ou mot de passe invalide." : null,
+//     "successMessage" => !$hasConnectionError ? "Connexion réussie!" : null,
+// ];
