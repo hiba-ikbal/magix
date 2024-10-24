@@ -14,24 +14,23 @@
     Attacking with a card
     Using special abilities (battlecry, deathrattle)
     Ending a turn
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -->
+<!-- entry point page  squelette du site utilise du code php pour inserer les infos a partir de la bd-->
+<?php
+require_once("actions/GameAction.php");
+
+$action = new GameAction();
+$data = $action->execute();
+require_once("partials/header.php");
+
+?>
+
+  
+<div class="game-page">
+    <h2>Jeu en cours</h2>
+    <div id="game-state"></div>
+    <button id="end-turn">Terminer le tour</button>
+</div>
+
+    <?php
+	require_once("partials/footer.php");
