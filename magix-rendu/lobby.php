@@ -25,6 +25,8 @@ require_once("partials/header.php");
     	<button type="submit">Modifier deck</button>
 
 	</form>
+	<button id="start-game">Jouer</button>
+    <button id="start-practice">Pratique</button>
 	<iframe style="width:700px;height:240px;" onload="applyStyles(this)" 
         src="https://magix.apps-de-cours.com/server/chat/<?php echo $_SESSION["key"] ?>">
 </iframe>

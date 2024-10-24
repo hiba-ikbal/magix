@@ -20,6 +20,23 @@ document.addEventListener("DOMContentLoaded", () => {
             iframe.contentWindow.postMessage(JSON.stringify(styles), "*");
         }, 100);
     };
+	const key = "<?php echo $_SESSION['key']; ?>"; // Récupérer la clé de session
+	document.getElementById("start-game").addEventListener("click", () => {
+        const data = {
+            key: key,
+            type: "PVP", // Type de jeu
+            mode: "STANDARD" 
+        };
+        callAPI("games/auto-match", data);
+    });
+	document.getElementById("start-practice").addEventListener("click", () => {
+        const data = {
+            key: key,
+            type: "TRAINING", // Type de jeu pour pratique
+            mode: "STANDARD" 
+        };
+        callAPI("games/auto-match", data);
+    });
 
     document.getElementById("back-button").addEventListener("click", () => {
         const iframe = document.getElementById("my-iframe");
