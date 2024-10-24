@@ -10,7 +10,7 @@
 ?>
 <div class="login-form-frame">
 	<form action="auth.php" method="post">
-    <?php
+    	<?php
                 if (!empty($data["successMessage"])) {
                     ?>
                     <div class="success-message"><?= $data["successMessage"] ?> YEEEEEY</div>
@@ -44,6 +44,7 @@
 		<div class="form-input">
 			<button type="submit">Connexion</button>
 		</div>
+		
 		<div class="form-separator"></div>
 	</form>
 </div>

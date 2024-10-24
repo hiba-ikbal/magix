@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="Style/style.css">
-    <!-- <title>mettre une variable de session pour changer le nom des pages</title> -->
+    <script src="js/script.js"></script>    
     <nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>

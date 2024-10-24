@@ -1,6 +1,6 @@
 <?php
     require_once("actions/CommonAction.php");
-    require_once("actions/DAO/RulesDAO.php");
+    //require_once("actions/DAO/RulesDAO.php");
 
     class IndexAction extends CommonAction {
 
@@ -12,7 +12,7 @@
 
         protected function executeAction() {
 
-            $text = RulesDAO::getIndexText();
+            $text = "text d'entree"; // or whatever logic you need
 
             return compact("text");
         }
