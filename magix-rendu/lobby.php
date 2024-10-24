@@ -18,16 +18,8 @@ require_once("partials/header.php");
     	<button type="submit">Quitter</button>
 
 	</form>
-	<form method="post" action="game.php"> 
-   		<input type="hidden" name="action" value="pvp">
-    	<button type="submit">PVP</button>
-
-	</form>
-	<form method="post" action="game.php"> 
-   		<input type="hidden" name="action" value="game">
-    	<button type="submit">Practice</button>
-
-	</form>
+	
+	
 	<form method="post" action="deck.php"> 
    		<input type="hidden" name="action" value="deck">
     	<button type="submit">Modifier deck</button>
