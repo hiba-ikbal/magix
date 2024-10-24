@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Style/style.css">
-    <script src="js/script.js"></script>    
+    <script src="js/scripts.js"></script>    
     <nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>

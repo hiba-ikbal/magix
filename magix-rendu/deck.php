@@ -11,13 +11,13 @@ require_once("partials/header.php");
   
     <div class="deck-page">
        
-
     <iframe class="secondIframe" style="
-    width:99%; height:99%" src="https://magix.apps-de-cours.com/server/deck/<?php echo $_SESSION["key"] ?>">
+    width:99%; height:99%;" id="my-iframe" src="https://magix.apps-de-cours.com/server/deck/<?php echo $_SESSION["key"] ?>">
     </iframe>
     <!-- checker pq il reconnait pas le css apres  -->
 
-        
+    <button id="back-button">cacher</button>
+
     </div>
 
     <?php
