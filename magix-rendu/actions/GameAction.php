@@ -12,12 +12,24 @@
 
         protected function executeAction() {
 
-            $text = "text d'entree"; // or whatever logic I need
+         
+             
+                    // Prendre la clé de session pour pouvoir récupérer l'état du jeu
+                    $key = $_SESSION["key"];
+                    
+                    // API Call
+                    $data = [];
+                    $data["key"] = $_SESSION["key"];
             
-
-            return compact("text");
-        }
-    }
-
+                    // Appel à l'API pour obtenir l'état du jeu
+                    $result = parent::callAPI("games/state", $data);
+            
+                    // Renvoyer les données à la vue (game.php)
+                    return compact("result");
+                }
+            }
+          
+            
+       
     //Make sure RulesDAO::getIndexText() correctly handles cases where there are no rules to display.
     

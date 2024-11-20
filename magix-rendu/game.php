@@ -16,6 +16,9 @@
     Ending a turn
 -->
 <!-- entry point page  squelette du site utilise du code php pour inserer les infos a partir de la bd-->
+<script type="module" src="js/game.js"></script>
+<link rel="stylesheet" href="Style/styles.css?v=<?php echo time(); ?>">
+
 <?php
 require_once("actions/GameAction.php");
 
@@ -24,13 +27,10 @@ $data = $action->execute();
 require_once("partials/header.php");
 
 ?>
+<!-- statut du jeu pour dire si c'est ton tour ou celui de l'ennemi avec btn retour au lobby -->
+
 
   
-<div class="game-page">
-    <h2>Jeu en cours</h2>
-    <div id="game-state"></div>
-    <button id="end-turn">Terminer le tour</button>
-</div>
 
     <?php
 	require_once("partials/footer.php");

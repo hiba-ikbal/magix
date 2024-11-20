@@ -68,4 +68,65 @@ document.addEventListener("DOMContentLoaded", () => {
     //         console.error("Error calling API:", error);
     //     });
     // }
+    // Fonction AJAX pour récupérer l'état du jeu
+function fetchGameState() {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "ajax.php", true);  // Envoi de la requête GET vers ajax.php
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Récupérer les données renvoyées par ajax.php
+            const stateData = JSON.parse(xhr.responseText);
+
+            // Afficher les cartes de l'adversaire
+            const enemyBoardCards = stateData.opponent.board;
+            const enemyBoardContainer = document.getElementById("enemy-board-cards-container");
+
+            enemyBoardCards.forEach(card => {
+                const cardElement = document.createElement("div");
+                cardElement.classList.add("enemy-card");
+
+                // Créez la carte avec les informations nécessaires
+                cardElement.innerHTML = `
+                    <div class="card-info">
+                        <h3>${card.name}</h3>
+                        <p>Attaque: ${card.attack}</p>
+                        <p>Vie: ${card.hp}</p>
+                        <p>Coût: ${card.cost}</p>
+                    </div>
+                `;
+
+                enemyBoardContainer.appendChild(cardElement);
+            });
+
+            // Afficher les cartes du joueur
+            const playerBoardCards = stateData.board;
+            const playerBoardContainer = document.getElementById("player-board-cards-container");
+
+            playerBoardCards.forEach(card => {
+                const cardElement = document.createElement("div");
+                cardElement.classList.add("player-card");
+
+                // Créez la carte avec les informations nécessaires
+                cardElement.innerHTML = `
+                    <div class="card-info">
+                        <h3>${card.name}</h3>
+                        <p>Attaque: ${card.attack}</p>
+                        <p>Vie: ${card.hp}</p>
+                        <p>Coût: ${card.cost}</p>
+                    </div>
+                `;
+
+                playerBoardContainer.appendChild(cardElement);
+            });
+        }
+    };
+
+    xhr.send();
+}
+
+// Appeler la fonction AJAX dès que la page est chargée
+document.addEventListener("DOMContentLoaded", fetchGameState);
+
 });
