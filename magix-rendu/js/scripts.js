@@ -21,25 +21,51 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
     };
 	const key = "<?php echo $_SESSION['key']; ?>"; // Récupérer la clé de session
-	document.getElementById("start-game").addEventListener("click", () => {
-        const data = {
-            key: key,
-            type: "PVP", // Type de jeu
-            mode: "STANDARD" 
-        };
-        callAPI("games/auto-match", data);
-    });
-	document.getElementById("start-practice").addEventListener("click", () => {
-        const data = {
-            key: key,
-            type: "TRAINING", // Type de jeu pour pratique
-            mode: "STANDARD" 
-        };
-        callAPI("games/auto-match", data);
-    });
+	
+    // document.getElementById("start-game").addEventListener("click", () => {
+    //     const data = {
+    //         key: key,
+    //         type: "PVP", // Type de jeu
+    //         mode: "STANDARD" 
+    //     };
+    //    // callAPI("games/auto-match", data);
+    // });
+	// document.getElementById("start-practice").addEventListener("click", () => {
+    //     const data = {
+    //         key: key,
+    //         type: "TRAINING", // Type de jeu pour pratique
+    //         mode: "STANDARD" 
+    //     };
+    //     callAPI("games/auto-match", data);
+    // });
 
-    document.getElementById("back-button").addEventListener("click", () => {
-        const iframe = document.getElementById("my-iframe");
-        iframe.style.display = "none"; // Cache l'iframe
-    });
+    // document.getElementById("back-button").addEventListener("click", () => {
+    //     const iframe = document.getElementById("my-iframe");
+    //     iframe.style.display = "none"; // Cache l'iframe
+    // });
+    
+    //     // Fonction pour appeler l'API
+
+    // function callAPI(service, data) {
+    //     fetch(`https://magix.apps-de-cours.com/api/${service}`, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+    //     .then(response => response.json())
+    //     .then(result => {
+    //         // Vérification des résultats de l'API
+    //         if (result === "INVALID_KEY" || result === "INVALID_GAME_TYPE" || result === "DECK_INCOMPLETE") {
+    //             alert("Erreur: " + result); // Afficher une erreur si le résultat est invalide
+    //         } else {
+    //             // Si le résultat est valide, rediriger vers la page du jeu
+    //             window.location.href = "game.php";
+    //         }
+    //     })
+    //     .catch(error => {
+    //         console.error("Error calling API:", error);
+    //     });
+    // }
 });

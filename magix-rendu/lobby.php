@@ -13,7 +13,7 @@ require_once("partials/header.php");
     <h2>Lobby</h2>
     <p>Bienvenue dans le lobby! Choisissez une option ci-dessous :</p>
 
-    <form method="post" action="logout.php"> 
+    <!-- <form method="post" action="logout.php"> 
    		<input type="hidden" name="action" value="logout">
     	<button type="submit">Quitter</button>
 
@@ -26,7 +26,11 @@ require_once("partials/header.php");
 
 	</form>
 	<button id="start-game">Jouer</button>
-    <button id="start-practice">Pratique</button>
+    <button id="start-practice">Pratique</button> -->
+	<button><a href="?pratique=true">Pratique</a></button>
+            <button><a href="?jouer=true">Jouer</a></button>
+            <button><a href="blog.php?id=1">Blog</a></button>
+            <button><a href="?logout=true">Quitter</a></button>
 	<iframe style="width:700px;height:240px;" onload="applyStyles(this)" 
         src="https://magix.apps-de-cours.com/server/chat/<?php echo $_SESSION["key"] ?>">
 </iframe>

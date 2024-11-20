@@ -12,7 +12,8 @@
 
         protected function executeAction() {
 
-            $text = "text d'entree"; // or whatever logic you need
+            $text = "text d'entree"; // or whatever logic I need
+            
 
             return compact("text");
         }
