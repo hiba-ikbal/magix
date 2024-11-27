@@ -43,7 +43,7 @@ require_once("partials/header.php");
         </div>
     </div>
     <div class="enemy-remaining-cards-container">
-        <img src="assets/img1.jpg" alt="Card Remaining" />
+        <img src="assets/img1.png" alt="Card Remaining" />
         <div id="enemy-remaining-cards-qty"></div>
     </div>
 </section>
@@ -51,7 +51,7 @@ require_once("partials/header.php");
   <section id="player-section">
     <div id="player-details">
         <div class="player-remaining-cards-container">
-            <img src="assets/img1.jpg" alt="Player remaining cards">
+            <img src="assets/img1.png" alt="Player remaining cards">
             <div class="player-remaining-cards"></div>
         </div>
         <div class="player-hp-mp-container">
