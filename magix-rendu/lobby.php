@@ -8,6 +8,7 @@ require_once("partials/header.php");
 
 ?>
 
+<body>
 
  <div class="lobby">
     <h2>Lobby</h2>
@@ -29,7 +30,7 @@ require_once("partials/header.php");
     <button id="start-practice">Pratique</button> -->
 	<button><a href="?pratique=true">Pratique</a></button>
             <button><a href="?jouer=true">Jouer</a></button>
-            <button><a href="blog.php?id=1">Blog</a></button>
+            <!-- <button><a href="blog.php?id=1">Blog</a></button> -->
             <button><a href="?logout=true">Quitter</a></button>
 	<iframe style="width:700px;height:240px;" onload="applyStyles(this)" 
         src="https://magix.apps-de-cours.com/server/chat/<?php echo $_SESSION["key"] ?>">

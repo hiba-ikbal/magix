@@ -8,46 +8,38 @@
 	$pageTitle = "Authentification";
 	require_once("partials/header.php");
 ?>
-<div class="login-form-frame">
-	<form action="auth.php" method="post">
-    	<?php
-                if (!empty($data["successMessage"])) {
-                    ?>
-                    <div class="success-message"><?= $data["successMessage"] ?> YEEEEEY</div>
-                    <?php
-                }
-                if (!empty($data["errorMessage"])) {
-                    ?>
-                    <div class="error-message"><?= $data["errorMessage"] ?>OOOOOPS</div>
-                    <?php
-                }
-            ?>
-		<div class="form-label">
-			<label for="username">Nom d'usager : </label>
+<body>
+<div id="hogwarts-background">
+<div id="form-wrapper">
+<form action="auth.php" method="post">
+<div class="form-label">
+			<label for="username">Your wizzard name: </label>
 		</div>
 		<div class="form-input">
 			<input type="text" name="username" required />
 		</div>
-		<div class="form-separator"></div>
-
 		<div class="form-label">
-			<label for="password">Mot de passe : </label>
+			<label for="password">Alohomora: </label>
 		</div>
 		<div class="form-input">
 			<input type="password" name="pwd" required />
 		</div>
 		<div class="form-separator"></div>
 
-		<div class="form-label">
-			&nbsp;
-		</div>
-		<div class="form-input">
+<div class="form-label">
+	&nbsp;
+</div>
+
+<div class="form-input">
 			<button type="submit">Connexion</button>
 		</div>
 		
 		<div class="form-separator"></div>
 	</form>
 </div>
+</div>
+
+
 <?php
 	require_once("partials/footer.php");
 //Make sure the successMessage and errorMessage keys in the $data array are set correctly in your AuthAction.

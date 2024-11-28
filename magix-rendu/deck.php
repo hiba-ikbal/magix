@@ -8,7 +8,7 @@ require_once("partials/header.php");
 
 ?>
 
-  
+<body>
     <div class="deck-page">
        
     <iframe class="secondIframe" style="

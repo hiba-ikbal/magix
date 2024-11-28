@@ -18,9 +18,13 @@
             
             $user = null;
             $hasConnectionError = false;
+            $data=[
+                "errorMessage" =>null,
+                "successMessage" =>null
+            ];
 			
             if(isset($_POST["username"]) && isset($_POST["pwd"])){
-                $data = [];
+                
                 $data["username"] = $_POST["username"];
                 $data["password"] = $_POST["pwd"];
 
@@ -29,25 +33,25 @@
                 if ($result == "INVALID_USERNAME_PASSWORD") {
 	            // err
                     $hasConnectionError = true;
+                    $data["errorMessage"] = "Nom d'utilisateur ou mot de passe invalide";
                 }
                 else {
 	                // Pour voir les informations retournées : var_dump($result);exit;
 	                $key = $result->key;
                     $_SESSION["key"] = $key;
                     $_SESSION["username"] = $data["username"];
+
+                    $data["successMessage"]= "Connexion reussi!";
+
                     header("location:lobby.php");
-                    return $data;
+                    exit;
                 }
 
             }
-            
+            return $data;
+
         //}
         }
        
     }
 
-//ensure to always provide feedback to the user
-//return [
-//     "errorMessage" => $hasConnectionError ? "Nom d'utilisateur ou mot de passe invalide." : null,
-//     "successMessage" => !$hasConnectionError ? "Connexion réussie!" : null,
-// ];

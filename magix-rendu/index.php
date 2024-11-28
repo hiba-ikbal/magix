@@ -7,18 +7,20 @@ $data = $action->execute();
 require_once("partials/header.php");
 
 ?>
+<body  class="page-index">
 
-  
-    <div class="page-index">
-        <h1>Bienvenue dans le jeu!</h1>
-        <video controls width="600">
-            <source src="path/to/video.mp4" type="video/mp4"> <!-- Replace with the video path -->
+<div class="index-image-container">
+        <img src="path-to-your-image.jpg" alt="Image before header" class="index-image">
+    </div>
+
+    <div>
+       
+        <video autoplay muted loop id="myVideo">
+            <source src="../assets/great-hall-hogwarts.1920x1080.mp4" type="video/mp4"> 
         </video>
+        <h1 class="title">Accio Jeu! Bienvenue dans la Magie!</h1>
         
-        <?= $data["text"] ?>
 
-
-        
     </div>
 
     <?php
