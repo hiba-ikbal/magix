@@ -1006,30 +1006,23 @@ h2 {
 
 .container {
 	max-width: 100%;
-	width: 1400px;
-	height: 700px;
-	overflow: hidden;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  height: 700px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   }
   svg {
-	position: relative;
 	width: 100%;
+  height: auto; /* This ensures the SVG adapts to the screen size without zooming */
   }
-  #ron-answer {
+  #ron-answer, #harry-answer,  #bother1, #bother2 #ron-answer3 {
 	visibility: hidden;
-   }
-  #harry-answer {
-	visibility: hidden;
-   }
-  #bother1, #bother2 {
-	visibility: hidden;
+	transition: opacity 0.5s ease;
   }
-  #stop1, #stop2 {
-	visibility: hidden;
-  }
+ 
+ 
   #fun, #moving {
 	visibility: hidden;
 	z-index: 10;
