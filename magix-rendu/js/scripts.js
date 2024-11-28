@@ -69,5 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //     });
     // }
     // Fonction AJAX pour récupérer l'état du jeu
+    
 
 });
+

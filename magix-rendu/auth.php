@@ -8,7 +8,7 @@
 	$pageTitle = "Authentification";
 	require_once("partials/header.php");
 ?>
-<body>
+<body class="auth-page">
 <div id="hogwarts-background">
 <div id="form-wrapper">
 <form action="auth.php" method="post">

@@ -88,13 +88,13 @@ button {
 #form-wrapper > form{
 	color:white;
 	padding: 40px;
-	/* font-family: 'Jolly Lodger'; */
+	
 	font-size: 26px;
 	letter-spacing: 1px
 
 }
 #form-wrapper > form > input{
-	/* font-family: 'Jolly Lodger'; */
+
 	font-size: 22px;
 	letter-spacing: 1px;
   }
@@ -140,20 +140,70 @@ button {
 	text-decoration: none;
 
 }
+.rules-list {
+    background-color: rgba(100, 30, 30, 0.7); /* Fond sombre avec transparence */
+    font-size: 18px; /* Ajuste la taille de la police pour mieux s'adapter au contenu */
+    letter-spacing: 1px;
+    width: 80%; /* Limite la largeur à 80% de l'écran pour plus de lisibilité */
+    max-width: 900px; /* Limite la largeur maximale pour éviter qu'il ne devienne trop large */
+    padding: 20px; /* Ajoute un peu d'espace autour du texte */
+    margin: 20px auto; /* Centre le bloc horizontalement et ajoute un peu d'espace au-dessus et en dessous */
+    border-radius: 15px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombre légère pour donner de la profondeur */
+    text-align: left; /* Aligne le texte à gauche pour une meilleure lisibilité */
+    color:	#efeee9; /* Couleur du texte en blanc pour contraste */
+    position: relative;
+	
+}
 
 
+.rules-list h2 {
+    font-size: 24px; /* Taille de la police du titre */
+    margin-bottom: 15px; /* Espace sous le titre */
+    text-align: center; /* Centrer le titre */
+}
+.rules-list ul {
+    list-style: none; /* Supprime les puces par défaut */
+    padding-left: 20px; /* Indentation de la liste */
+}
+.rules-list li {
+    margin: 10px 0; /* Espacement entre les éléments de la liste */
+}
 
+.rules-list li strong {
+    color: #f1c40f; /* Met en valeur les mots-clés en jaune */
+}
 
-.login-form-frame{
+.auth-page.php{
 	position: relative;
-    display: grid;
-	width: 100%;
-	grid-template-columns: 1fr;
-	grid-template-rows: 0.5fr 4fr 2fr;
-	padding: 10px;
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+	
+}
+.auth-page nav{
+	background-color: rgba(61, 47, 34, 0.9); /* Fond sombre avec transparence */
+	z-index: 1;
+  }
+.auth-page nav ul{
+	list-style: none; 
+	display: flex;
+    justify-content: center;   
+    align-items: center;
+    height: 100px; 
+	   
+}
+  .auth-page nav li{
+	margin: 0 30px;  
+	
+}
+  .auth-page nav a{
+	color: #efeee9;
+	font-size: 28px;
+	text-decoration: none;
+
 }
 
 .form-label {
@@ -952,6 +1002,40 @@ h2 {
 	stroke-dasharray: 100, 2600;
 	stroke-dashoffset: -300px;
 }
+
+
+.container {
+	max-width: 100%;
+	width: 1400px;
+	height: 700px;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  svg {
+	position: relative;
+	width: 100%;
+  }
+  #ron-answer {
+	visibility: hidden;
+   }
+  #harry-answer {
+	visibility: hidden;
+   }
+  #bother1, #bother2 {
+	visibility: hidden;
+  }
+  #stop1, #stop2 {
+	visibility: hidden;
+  }
+  #fun, #moving {
+	visibility: hidden;
+	z-index: 10;
+  }
+
+
 
 @keyframes rotate {
 	100% {
