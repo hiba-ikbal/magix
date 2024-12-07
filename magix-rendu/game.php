@@ -7,7 +7,7 @@ $data = $action->execute();
 require_once("partials/header.php");
 ?>
 
-<script defer src="js/game.js"></script>
+<script defer src="./js/game.js"></script>
 <body>
 <div id="game">
   <div id="opponent">

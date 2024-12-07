@@ -1,18 +1,17 @@
-// agit comme le controller du jeu, il gère les appels ajax et les affichages des cartes et des infos du jeu
 
-let myHand = [];
-let opponantHand = [];
-let myBoard = [];
+let playerHand = [];
+let enemyHand = [];
+let playerBoard = [];
 let opponentBoard = [];
 let mana = 0;
 let count = 0;
-let isCardSelected = null;
+let Selected = null;
 let hand = document.querySelector("#card-container");
 let opponent = document.querySelector("#opponent");
 let messages = document.querySelector("#message");
 
 const state = () => {
-    fetch("ajax.php", {   // Il faut créer cette page et son contrôleur appelle 
+    fetch("ajax.php", {   
         method: "POST"        // l’API (games/state)
     })
         .then(response => response.json())
@@ -46,36 +45,36 @@ const state = () => {
                     let opponentIcon = document.createElement("img");
                     // console.log(data);
                     if (data.opponent.heroClass.includes("Warlock")) {
-                        opponentIcon.src = "img/Cartes/Moira.png";
+                        opponentIcon.src = "./assets/Cards/severus.png";
                     }
                     else if (data.opponent.heroClass.includes("Demonhunter")) {
-                        opponentIcon.src = "img/Cartes/Reaper.png";
+                        opponentIcon.src = "./assets/Cards/Demonhunter.png";
                     }
                     else if (data.opponent.heroClass.includes("Druid")) {
-                        opponentIcon.src = "img/Cartes/Zenyatta.png";
+                        opponentIcon.src = "./assets/Cards/Druid.png";
                     }
                     else if (data.opponent.heroClass.includes("Paladin")) {
-                        opponentIcon.src = "img/Cartes/Reinhardt.png";
+                        opponentIcon.src = "./assets/cards/Paladin.png";
                     }
                     else if (data.opponent.heroClass.includes("Warrior")) {
-                        opponentIcon.src = "img/Cartes/Soldier76.png";
+                        opponentIcon.src = "./assets/Cards/BL.png";
                     }
                     else if (data.opponent.heroClass.includes("Hunter")) {
-                        opponentIcon.src = "img/Cartes/Hanzo.png";
+                        opponentIcon.src = "./assets/Cards/Hunter.png";
                     }
                     else if (data.opponent.heroClass.includes("Rogue")) {
-                        opponentIcon.src = "img/Cartes/Genji.png";
+                        opponentIcon.src = "./assets/Cards/Rogue.png";
                     }
                     else if (data.opponent.heroClass.includes("Priest")) {
-                        opponentIcon.src = "img/Cartes/Mercy.png";
+                        opponentIcon.src = "./assets/Cards/Priest.png";
                     }
                     else if (data.opponent.heroClass.includes("Shaman")) {
-                        opponentIcon.src = "img/Cartes/Kiriko.png";
+                        opponentIcon.src = "./assets/Cards/Shaman.png";
                     }
                     else if (data.opponent.heroClass.includes("Mage")) {
-                        opponentIcon.src = "img/Cartes/Mei.png";
+                        opponentIcon.src = "./assets/Cards/Mage.png";
                     }
-                    else { opponentIcon.src = "img/Cartes/Reaper.png"; }
+                    else { opponentIcon.src = "./assets/Cards/Voldemor.png"; }
 
 
                     opponentIcon.classList.add("img");
@@ -90,16 +89,16 @@ const state = () => {
                     })
                         .then(response => response.json())
                         .then(data => {
-                            playerIcon.src = "img/Cartes/" + data + ".png";
+                            playerIcon.src = "./assets/Cards/" + data + ".png";
                         });
 
                     playerIcon.alt = "playerIcon";
                     playerIcon.classList.add("img");
                     playerImage.append(playerIcon);
                     opponentIcon.onclick = () => {
-                        if (isCardSelected != null) {
-                            attack(isCardSelected, 0);
-                            isCardSelected = null;
+                        if (Selected != null) {
+                            attack(Selected, 0);
+                            Selected = null;
                         }
                     };
                 }
@@ -112,6 +111,7 @@ const state = () => {
 
                 refreshGame(data);
             }
+
             setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
         })
 }
@@ -127,7 +127,7 @@ let refreshGame = (data) => {
         }, 2000);
     }
     else {
-        if (JSON.stringify(data.hand) != JSON.stringify(myHand) || mana != data.mp) {
+        if (JSON.stringify(data.hand) != JSON.stringify(playerHand) || mana != data.mp) {
             hand.innerHTML = null;
             mana = data.mp;
             let main = data.hand;
@@ -154,9 +154,9 @@ let refreshGame = (data) => {
                         });
                 };
             })
-            myHand = data.hand
+            playerHand = data.hand
         }
-        if (JSON.stringify(data.opponent.handSize) != JSON.stringify(opponantHand)) {
+        if (JSON.stringify(data.opponent.handSize) != JSON.stringify(enemyHand)) {
             let opponentCards = document.querySelector("#opponentCards");
             opponentCards.innerHTML = null;
             let opponentHandSize = data.opponent.handSize;
@@ -164,9 +164,9 @@ let refreshGame = (data) => {
                 let carte = makeCard(0, 102);
                 opponentCards.append(carte);
             }
-            opponantHand = data.opponent.handSize
+            enemyHand = data.opponent.handSize
         }
-        if (JSON.stringify(data.board) != JSON.stringify(myBoard)) {
+        if (JSON.stringify(data.board) != JSON.stringify(playerBoard)) {
 
             let board = document.querySelector("#boardCardContainer");
             board.innerHTML = null;
@@ -178,10 +178,10 @@ let refreshGame = (data) => {
                 carte.onclick = () => {
 
                     carte.classList.add("isSelected");
-                    isCardSelected = element.uid;
+                    Selected = element.uid;
                 };
             })
-            myBoard = data.board
+            playerBoard = data.board
         }
         if (JSON.stringify(data.opponent.board) != JSON.stringify(opponentBoard)) {
 
@@ -193,9 +193,9 @@ let refreshGame = (data) => {
                 let carte = makeCard(element, element.id);
                 boardCardOpponent.append(carte);
                 carte.onclick = () => {
-                    if (isCardSelected != null) {
-                        attack(isCardSelected, element.uid);
-                        isCardSelected = null;
+                    if (Selected != null) {
+                        attack(Selected, element.uid);
+                        Selected = null;
                     }
                 };
             })
@@ -243,16 +243,16 @@ const makeCard = (element, imageId) => {
         let info = document.createElement("p");
 
         if (element.mechanics.includes("Taunt")) {
-            img.style.backgroundImage = "url(img/Cartes/Tracer.png)";
+            img.style.backgroundImage = "url(./assets/Cards/Taunt.png)";
         }
         else if (element.mechanics.includes("Charge")) {
-            img.style.backgroundImage = "url(img/Cartes/Reinhardt.png)";
+            img.style.backgroundImage = "url(./assets/Cards/Charge.png)";
         }
         else if (element.mechanics.includes("Stealth")) {
-            img.style.backgroundImage = "url(img/Cartes/Sombra.png)";
+            img.style.backgroundImage = "url(./assets/Cards/Stealth.png)";
         }
         else if (element.mechanics.includes("Confused")) {
-            img.style.backgroundImage = "url(img/Cartes/Junkrat.png)";
+            img.style.backgroundImage = "url(./assets/Cards/Confused.png)";
         }
         else {
             img.style.backgroundImage = "url(" + cardImage(imageId) + ")";
@@ -292,7 +292,7 @@ const makeCard = (element, imageId) => {
 //retourne une image pour la carte selon le id
 const cardImage = (id) => {
     let image;
-    let cheminImage = "img/CartesNum/";
+    let cheminImage = "./assets/Nums/";
 
     if (id <= 31) {
         image = cheminImage + id.toString() + ".png";
@@ -307,16 +307,15 @@ const cardImage = (id) => {
         image = cheminImage + (id - 93).toString() + ".png";
     }
     else if (id == 102) {
-        image = "img/cardback.png";
+        image = "./assets/img1.png";
     }
     else {
         // carte generique
-        image = "img/Cartes/omnic.jpg";
+        image = "./assets/dumbledor-icon.jpg";
     }
     return image;
 }
 
-// **********  Fonctions appelées par les boutons de l'écran de jeux principal**********
 
 const heroPower = () => {
     let formData = new FormData();

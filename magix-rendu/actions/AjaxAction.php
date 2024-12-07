@@ -9,7 +9,7 @@ class AjaxAction extends CommonAction
     }
 
     protected function executeAction()
-    {
+    { 
         $result = "";
         $data = [];
         $error = "";
@@ -50,7 +50,7 @@ class AjaxAction extends CommonAction
                 if (isset($_SESSION["heroChoisi"])) {
                     $result = $_SESSION["heroChoisi"];
                 } else {
-                    $result = "Zenyatta";  // Valeur par défaut si aucun héros n'est choisi
+                    $result = "Harryp";  // Valeur par défaut si aucun héros n'est choisi
                 }
             }
         } else {

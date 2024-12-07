@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const applyStyles = iframe => {
         let styles = {
             fontColor: "#333",
-            backgroundColor: "rgba(87, 41, 5, 0.2)",
+            // backgroundColor: "rgba(87, 41, 5, 0.2)",
+            backgroundColor:"#FFFFFF",
             fontGoogleName: "Sofia",
             fontSize: "20px",
             hideIcons: false,
@@ -21,55 +22,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
     };
 	const key = "<?php echo $_SESSION['key']; ?>"; // Récupérer la clé de session
-	
-    // document.getElementById("start-game").addEventListener("click", () => {
-    //     const data = {
-    //         key: key,
-    //         type: "PVP", // Type de jeu
-    //         mode: "STANDARD" 
-    //     };
-    //    // callAPI("games/auto-match", data);
-    // });
-	// document.getElementById("start-practice").addEventListener("click", () => {
-    //     const data = {
-    //         key: key,
-    //         type: "TRAINING", // Type de jeu pour pratique
-    //         mode: "STANDARD" 
-    //     };
-    //     callAPI("games/auto-match", data);
-    // });
 
-    // document.getElementById("back-button").addEventListener("click", () => {
-    //     const iframe = document.getElementById("my-iframe");
-    //     iframe.style.display = "none"; // Cache l'iframe
-    // });
-    
-    //     // Fonction pour appeler l'API
 
-    // function callAPI(service, data) {
-    //     fetch(`https://magix.apps-de-cours.com/api/${service}`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    //     .then(response => response.json())
-    //     .then(result => {
-    //         // Vérification des résultats de l'API
-    //         if (result === "INVALID_KEY" || result === "INVALID_GAME_TYPE" || result === "DECK_INCOMPLETE") {
-    //             alert("Erreur: " + result); // Afficher une erreur si le résultat est invalide
-    //         } else {
-    //             // Si le résultat est valide, rediriger vers la page du jeu
-    //             window.location.href = "game.php";
-    //         }
-    //     })
-    //     .catch(error => {
-    //         console.error("Error calling API:", error);
-    //     });
-    // }
-    // Fonction AJAX pour récupérer l'état du jeu
-    
+
+const dialogues = [
+    "Ah, welcome! Are you ready to test your magical prowess in the wizarding duel?",
+    "Choose your deck wisely, for every card holds a secret power.",
+    "Choose your path: Practice your spells, challenge a rival, or customize your deck.",
+];
+
+let dialogueIndex = 0;
+
+function changeDialogue() {
+    dialogueIndex = (dialogueIndex + 1) % dialogues.length;
+    document.getElementById('dialogue-text').textContent = dialogues[dialogueIndex];
+}
+setInterval(changeDialogue, 5000); // Changes dialogue every 5 seconds
+
 
 });
 

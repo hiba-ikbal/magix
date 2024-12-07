@@ -35,12 +35,10 @@ require_once("partials/header.php");
 <body  class="page-index">
 <!-- Afficher la div avec les liens et images uniquement si elle est définie -->
 
-<?php if (isset($imagesLinks) && $imagesLinks) { echo $imagesLinks; } ?>
-
-    <div>
+   <div>
        
         <video autoplay muted loop id="myVideo">
-            <source src="../assets/great-hall-hogwarts.1920x1080.mp4" type="video/mp4"> 
+            <source src="./assets/great-hall-hogwarts.1920x1080.mp4" type="video/mp4"> 
         </video>
         <h1 class="title">Accio Jeu! Bienvenue dans la Magie!</h1>
         <div class="rules-list">
