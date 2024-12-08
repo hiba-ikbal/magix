@@ -9,7 +9,7 @@ class AjaxAction extends CommonAction
     }
 
     protected function executeAction()
-    { 
+    {
         $result = "";
         $data = [];
         $error = "";
@@ -61,27 +61,21 @@ class AjaxAction extends CommonAction
         return compact("result");
     }
 
-    // Méthode simulée pour l'enregistrement d'une carte jouée
     private function simulateCardPlayed($id)
     {
-        // Simuler l'ajout d'une carte jouée sans interagir avec une base de données
         error_log("Carte jouée avec l'ID: " . $id);
     }
 
-    // Méthode simulée pour récupérer les popularités des cartes
     private function simulateGetPopularite()
     {
-        // Retourner des données simulées
         return [
             ['idCarte' => 1, 'count' => 5],
             ['idCarte' => 2, 'count' => 3]
         ];
     }
 
-    // Méthode simulée pour récupérer la carte la plus jouée
     private function simulateGetMostPlayed()
     {
-        // Retourner des données simulées
         return ['idCarte' => 1, 'count' => 10];
     }
 }
